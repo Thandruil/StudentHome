@@ -1,0 +1,14 @@
+# Python
+*.pyc
+
+# Database
+*.sqlite3
+
+# Translations
+*.mo
+
+# Project Settings
+studenthome/settings/local.py
+
+# JetBrains
+.idea/
