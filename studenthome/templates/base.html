@@ -12,43 +12,30 @@
 <nav class="indigo">
     <div class="nav-wrapper container">
         <a href="#" class="brand-logo">StudentHome</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="{% url 'login' %}">Login</a></li>
-        </ul>
-        <ul id="nav-mobile" class="side-nav">
-            <li><a href="{% url 'login' %}">Login</a></li>
-        </ul>
+        {% if user.is_authenticated %}
+            <ul class="right hide-on-med-and-down">
+                <li><a href="">{{ user }}</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="">{{ user }}</a></li>
+            </ul>
+        {% else %}
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href=""{% url 'login' %}>Login</a></li>
+            </ul>
+        {% endif %}
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>
 </nav>
 <main>
-    {% block content %}
-    {% endblock content %}
-</main>
-<footer class="page-footer indigo">
     <div class="container">
-        <div class="row">
-            <div class="col l4 offset-l8 s12">
-                <h5 class="white-text">Connect</h5>
-                <ul class="white-text">
-                    <li>
-                        <i class="mdi-communication-email left"></i>
-                        <a class="white-text" href="mailto:studenthome@erikgaal.nl">studenthome@erikgaal.nl</a>
-                    </li>
-                    <li>
-                        <i class="mdi-content-link left"></i>
-                        <a class="white-text" href="//github.com/Thandruil/StudentHome">github.com/Thandruil/StudentHome</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {% block content %}
+        {% endblock content %}
     </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © 2015 Copyright Erik Gaal
-        </div>
-    </div>
-</footer>
+</main>
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="{% static "js/materialize.min.js" %}"></script>
 <script src="{% static 'js/init.js' %}"></script>
