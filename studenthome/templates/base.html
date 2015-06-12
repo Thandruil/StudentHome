@@ -1,0 +1,56 @@
+{% load staticfiles i18n %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>StudentHome :: {% block title %}{{ request.path }}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static "css/base.css" %}"/>
+</head>
+<body>
+<nav class="indigo">
+    <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">StudentHome</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </div>
+</nav>
+<main>
+    {% block content %}
+    {% endblock content %}
+</main>
+<footer class="page-footer indigo">
+    <div class="container">
+        <div class="row">
+            <div class="col l4 offset-l8 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul class="white-text">
+                    <li>
+                        <i class="mdi-communication-email left"></i>
+                        <a class="white-text" href="mailto:studenthome@erikgaal.nl">studenthome@erikgaal.nl</a>
+                    </li>
+                    <li>
+                        <i class="mdi-content-link left"></i>
+                        <a class="white-text" href="//github.com/Thandruil/StudentHome">github.com/Thandruil/StudentHome</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2015 Copyright Erik Gaal
+        </div>
+    </div>
+</footer>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{% static "js/materialize.min.js" %}"></script>
+<script src="{% static 'js/init.js' %}"></script>
+</body>
+</html>
