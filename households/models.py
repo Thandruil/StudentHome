@@ -9,6 +9,8 @@ class Household(models.Model):
     postal = models.CharField(max_length=6)
     city = models.CharField(max_length=50)
 
+    token = models.CharField(max_length=10, unique=True)
+
     def get_full_address(self):
         return '%s %s, %s' % (self.street, self.number, self.city)
     get_full_address.short_description = 'Address'

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-from studenthome.models import Household, Inhabitant
+
+from households.models import Household, Inhabitant
 
 
 @admin.register(Household)
