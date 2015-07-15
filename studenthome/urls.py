@@ -22,6 +22,5 @@ urlpatterns = [
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout_then_login', name='logout'),
 
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
-    url(r'^today/$', TemplateView.as_view(template_name='today.html'), name='today'),
+    url(r'^', include('household.urls')),
 ]

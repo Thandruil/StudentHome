@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 
-from households.models import Household, Inhabitant
+from household.models import Household, Inhabitant
 
 
 @admin.register(Household)
