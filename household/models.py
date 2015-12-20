@@ -41,8 +41,8 @@ class Household(models.Model):
 
 
 class Resident(models.Model):
-    user = models.ForeignKey('User')
-    household = models.ForeignKey('Household')
+    user = models.ForeignKey(User)
+    household = models.ForeignKey(Household)
     is_manager = models.BooleanField()
 
     def __str__(self):

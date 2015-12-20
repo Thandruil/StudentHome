@@ -11,4 +11,4 @@ class HouseholdAdmin(ModelAdmin):
 
 @admin.register(Resident)
 class ResidentAdmin(ModelAdmin):
-    list_display = ('__str__', 'household', 'room')
+    list_display = ('__str__', 'household')
