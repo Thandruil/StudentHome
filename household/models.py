@@ -11,7 +11,7 @@ class Household(models.Model):
     number = models.CharField(max_length=10)
     postal = models.CharField(max_length=6)
     city = models.CharField(max_length=50)
-    residents = models.ManyToManyField(User, through=Resident)
+    residents = models.ManyToManyField(User, through='Resident')
 
     token = models.CharField(max_length=TOKEN_LENGTH, blank=True, unique=True)
 
