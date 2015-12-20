@@ -6,7 +6,7 @@ from household.models import Household, Resident
 
 @admin.register(Household)
 class HouseholdAdmin(ModelAdmin):
-    list_display = ('get_name', 'get_full_address')
+    list_display = ('__str__', 'get_full_address')
 
 
 @admin.register(Resident)

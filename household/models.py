@@ -15,9 +15,6 @@ class Household(models.Model):
 
     token = models.CharField(max_length=TOKEN_LENGTH, blank=True, unique=True)
 
-    def get_name(self):
-        return self.name or self.get_street_address()
-
     def get_street_address(self):
         return '%s %s' % (self.street, self.number)
 
@@ -37,7 +34,7 @@ class Household(models.Model):
         super(Household, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.name
+        return self.name or self.get_street_address()
 
 
 class Resident(models.Model):
@@ -46,4 +43,4 @@ class Resident(models.Model):
     is_manager = models.BooleanField()
 
     def __str__(self):
-        return '%s' % (self.user.get_full_name())
+        return self.user.get_full_name()
